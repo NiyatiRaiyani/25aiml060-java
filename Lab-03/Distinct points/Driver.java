@@ -1,4 +1,5 @@
 public class Driver {
+
     public static void main(String[] args) {
 
         Point[] points = {
@@ -12,9 +13,11 @@ public class Driver {
         int count = 0;
 
         for (int i = 0; i < points.length; i++) {
+
             boolean found = false;
 
             for (int j = 0; j < i; j++) {
+
                 if (points[i].equals(points[j])) {
                     found = true;
                     break;

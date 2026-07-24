@@ -16,10 +16,12 @@ public class Point {
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
-        if (!(obj instanceof Point))
+
+        if (obj == null || getClass() != obj.getClass())
             return false;
 
         Point p = (Point) obj;
+
         return x == p.x && y == p.y;
     }
 
