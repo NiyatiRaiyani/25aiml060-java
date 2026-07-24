@@ -9,10 +9,16 @@ public class Point {
         this.y = y;
     }
 
+    public Point(int x) {
+        this.x = x;
+    }
+
+    @Override
     public String toString() {
         return "(" + x + ", " + y + ")";
     }
 
+    @Override
     public boolean equals(Object obj) {
         if (this == obj)
             return true;
@@ -25,7 +31,16 @@ public class Point {
         return x == p.x && y == p.y;
     }
 
+    @Override
     public int hashCode() {
         return Objects.hash(x, y);
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
     }
 }

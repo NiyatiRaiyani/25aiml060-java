@@ -2,8 +2,8 @@ import java.util.Objects;
 
 public class Fraction {
 
-    private int num;
-    private int den;
+    private final int num;
+    private final int den;
 
     public Fraction(int num, int den) {
 
@@ -24,10 +24,12 @@ public class Fraction {
         return a;
     }
 
+    @Override
     public String toString() {
         return num + "/" + den;
     }
 
+    @Override
     public boolean equals(Object obj) {
 
         if (this == obj)
@@ -41,6 +43,7 @@ public class Fraction {
         return num == f.num && den == f.den;
     }
 
+    @Override
     public int hashCode() {
         return Objects.hash(num, den);
     }

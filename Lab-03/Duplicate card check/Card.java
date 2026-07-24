@@ -2,18 +2,20 @@ import java.util.Objects;
 
 public class Card {
 
-    private String rank;
-    private String suit;
+    private final String rank;
+    private final String suit;
 
     public Card(String rank, String suit) {
         this.rank = rank;
         this.suit = suit;
     }
 
+    @Override
     public String toString() {
         return rank + " of " + suit;
     }
 
+    @Override
     public boolean equals(Object obj) {
 
         if (this == obj)
@@ -27,6 +29,7 @@ public class Card {
         return rank.equals(c.rank) && suit.equals(c.suit);
     }
 
+    @Override
     public int hashCode() {
         return Objects.hash(rank, suit);
     }
