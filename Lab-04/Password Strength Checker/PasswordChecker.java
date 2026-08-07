@@ -1,3 +1,4 @@
+
 public class PasswordChecker
 {
     public static boolean hasLength(String pw)

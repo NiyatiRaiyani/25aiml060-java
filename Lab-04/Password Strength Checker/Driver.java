@@ -2,7 +2,6 @@ public class Driver
 {
      public static void main(String[] args) 
      {
-
         String[] passwords = 
         {
                 "abc",
@@ -10,9 +9,8 @@ public class Driver
                 "Abcd1234!",
                 "password",
                 "Niyati1252",
-                "Java@45"
+                "Java#8596"
         };
-        
         for (String pw : passwords) 
             {
 
@@ -33,7 +31,5 @@ public class Driver
             System.out.println("Strength : " +
                     PasswordChecker.strength(pw));
         }
-
     }
-
 }
