@@ -3,7 +3,7 @@ abstract class Shape {
 }
 
 class Circle extends Shape {
-    private double radius;
+    double radius;
 
     Circle(double radius) {
         this.radius = radius;
@@ -13,19 +13,11 @@ class Circle extends Shape {
     double area() {
         return Math.PI * radius * radius;
     }
-
-    public double getRadius() {
-        return radius;
-    }
-
-    public void setRadius(double radius) {
-        this.radius = radius;
-    }
 }
 
 class Rectangle extends Shape {
-    private double height;
-    private double width;
+    double height;
+    double width;
 
     Rectangle(double height, double width) {
         this.height = height;
@@ -36,27 +28,11 @@ class Rectangle extends Shape {
     double area() {
         return height * width;
     }
-
-    public double getHeight() {
-        return height;
-    }
-
-    public void setHeight(double height) {
-        this.height = height;
-    }
-
-    public double getWidth() {
-        return width;
-    }
-
-    public void setWidth(double width) {
-        this.width = width;
-    }
 }
 
 class Triangle extends Shape {
-    private double height;
-    private double base;
+    double height;
+    double base;
 
     Triangle(double height, double base) {
         this.height = height;
@@ -66,22 +42,6 @@ class Triangle extends Shape {
     @Override
     double area() {
         return 0.5 * base * height;
-    }
-
-    public double getBase() {
-        return base;
-    }
-
-    public double getHeight() {
-        return height;
-    }
-
-    public void setHeight(double height) {
-        this.height = height;
-    }
-
-    public void setBase(double base) {
-        this.base = base;
     }
 }
 
@@ -103,7 +63,7 @@ public class ShapeDemo {
 
             System.out.println("Area = " + currentArea);
 
-            total += currentArea;
+            total = total + currentArea;
 
             if (currentArea > largest) {
                 largest = currentArea;
