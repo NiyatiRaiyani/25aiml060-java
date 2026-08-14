@@ -61,7 +61,7 @@ public class ShapeDemo {
         for (Shape shape : shapes) {
             double currentArea = shape.area();
 
-            System.out.println("Area = " + currentArea);
+            System.out.println("Area of " + shape.getClass().getSimpleName() + " is " + currentArea);
 
             total = total + currentArea;
 
