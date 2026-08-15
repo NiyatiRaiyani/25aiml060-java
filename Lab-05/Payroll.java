@@ -58,10 +58,10 @@ public class Payroll {
     public static void main(String[] args) {
 
         Employee[] employees = {
-            new FullTime("Niyati", 101, 50000),
-            new PartTime("Riya", 102, 80, 300),
-            new Intern("Krina", 103, 12000),
-            new FullTime("Mahi", 104, 45000)
+            new FullTime("Niyati", 963, 50000),
+            new PartTime("Riya", 964, 80, 300),
+            new Intern("Krina", 965, 12000),
+            new FullTime("Mahi", 966, 45000)
         };
 
         double total = 0;
@@ -75,10 +75,12 @@ public class Payroll {
             System.out.println("Monthly Salary: " + salary);
 
             if (employee instanceof Intern) {
-                System.out.println("Note: This employee is an Intern.");
+                System.out.println("Note : This employee is an Intern.");
             }
 
             total = total + salary;
+
+            System.out.println();
         }
 
         System.out.println("Total Payroll = " + total);
