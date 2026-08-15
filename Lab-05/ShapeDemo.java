@@ -57,20 +57,24 @@ public class ShapeDemo {
 
         double total = 0;
         double largest = 0;
+        String largestShape = "";
 
         for (Shape shape : shapes) {
+
             double currentArea = shape.area();
 
-            System.out.println("Area of " + shape.getClass().getSimpleName() + " is " + currentArea);
+            System.out.println( "Area of " + shape.getClass().getSimpleName() + " is " + currentArea);
 
             total = total + currentArea;
 
             if (currentArea > largest) {
                 largest = currentArea;
+                largestShape = shape.getClass().getSimpleName();
             }
         }
 
         System.out.println("Total Area = " + total);
         System.out.println("Largest Area = " + largest);
+        System.out.println("Shape with Highest Area is " + largestShape);
     }
 }
