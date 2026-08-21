@@ -41,9 +41,7 @@ public class GuardedCalculator {
                     }
 
                     if (op == '/' && b == 0) {
-                        throw new DivideByZeroException(
-                            "Cannot divide by zero!"
-                        );
+                        throw new DivideByZeroException("Cannot divide by zero!");
                     }
 
                     if (op == '+') {
