@@ -44,24 +44,24 @@ public class GuardedCalculator {
                         throw new DivideByZeroException("Cannot divide by zero!");
                     }
 
-                    if (op == '+') {
-                        System.out.println("Result = " + (a + b));
-                        done = true;
-                    }
-                    else if (op == '-') {
-                        System.out.println("Result = " + (a - b));
-                        done = true;
-                    }
-                    else if (op == '*') {
-                        System.out.println("Result = " + (a * b));
-                        done = true;
-                    }
-                    else if (op == '/') {
-                        System.out.println("Result = " + (a / b));
-                        done = true;
-                    }
-                    else {
-                        System.out.println("Invalid operator!");
+                    switch (op) {
+                        case '+' -> {
+                            System.out.println("Result = " + (a + b));
+                            done = true;
+                        }
+                        case '-' -> {
+                            System.out.println("Result = " + (a - b));
+                            done = true;
+                        }
+                        case '*' -> {
+                            System.out.println("Result = " + (a * b));
+                            done = true;
+                        }
+                        case '/' -> {
+                            System.out.println("Result = " + (a / b));
+                            done = true;
+                        }
+                        default -> System.out.println("Invalid operator!");
                     }
                 }
 
