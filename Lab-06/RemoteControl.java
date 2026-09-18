@@ -1,68 +1,73 @@
-interface Switchable
-{
+interface Switchable {
+
     void on();
+
     void off();
 
-    default void toggle()
-    {
+    default void toggle() {
+        System.out.println("Device toggled");
         on();
     }
+}
+
+class Fan implements Switchable {
+
+    @Override
+    public void on() {
+        System.out.println("Fan ON");
     }
 
-class fan implements Switchable
-{
     @Override
-    public void on()
-    {
-        System.out.println("Fan is on.");
-    }
-    @Override
-    public void off()
-    {
-        System.out.println("Fan is off");
+    public void off() {
+        System.out.println("Fan OFF");
     }
 }
 
-class Light implements Switchable
-{
-    @Override
-    public void on()
-    {
-        System.out.println("Light is on.");
+class Light implements Switchable {
+
+    @SuppressWarnings("override")
+    public void on() {
+        System.out.println("Light ON");
     }
+
     @Override
-    public void off()
-    {
-        System.out.println("Light is off.");
+    public void off() {
+        System.out.println("Light OFF");
     }
 }
 
-@FunctionalInterface 
-interface permission
-{
-    boolean MyChoice(String device, int hours);
+@FunctionalInterface
+interface SwitchRule {
+    boolean maySwitchOn(Switchable device, int hour);
 }
 
-public class RemoteControl
-{
-    public static void main(String[] args)
-    {
-       Switchable[] devices = {new fan(), new Light()};
+public class RemoteControl {
 
-    for (Switchable device : devices)
-    {
-        device.toggle();
-    }
-    permission p1=(String device, int hours) -> hours > 6;
-        System.out.println("Fan at 8 AM: " + p1.MyChoice("Fan", 8) );
+    public static void main(String[] args) {
 
-        System.out.println("Light at 5 AM: " + p1.MyChoice("Light", 5));
-        
-        permission p2 = (device, hour) -> hour > 6;
+        Switchable[] devices = {
+            new Fan(),
+            new Light()
+        };
 
-        System.out.println("Lambda Result:");
-        System.out.println("Fan at 8 AM: " + p2.MyChoice("Fan", 8));
+        for (Switchable device : devices) {
+            device.on();
+            device.toggle();
+            device.off();
+            System.out.println();
+        }
 
-        System.out.println("Light at 5 AM: " + p2.MyChoice("Light", 5));
+        // Anonymous class
+        SwitchRule rule1 = (Switchable device, int hour) -> hour >= 6 && hour <= 22;
+
+        // Lambda
+        SwitchRule rule2 =
+            (device, hour) -> hour >= 6 && hour <= 22;
+
+        System.out.println("Anonymous class: "
+                + rule1.maySwitchOn(devices[0], 10));
+
+        System.out.println("Lambda: "
+                + rule2.maySwitchOn(devices[0], 10));
     }
 }
