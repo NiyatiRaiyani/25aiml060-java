@@ -65,14 +65,12 @@ public class FormValidator {
             try {
                 String value = (String) field.get(obj);
 
-                // Check @NotBlank
                 if (field.isAnnotationPresent(NotBlank.class)) {
                     if (value == null || value.trim().isEmpty()) {
                         errors.add(field.getName() + " cannot be blank");
                     }
                 }
 
-                // Check @MaxLength
                 if (field.isAnnotationPresent(MaxLength.class)) {
 
                     MaxLength max = field.getAnnotation(MaxLength.class);
