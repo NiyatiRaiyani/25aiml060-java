@@ -32,6 +32,22 @@ class SignupForm {
         this.email = email;
         this.city = city;
     }
+
+    public SignupForm(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public String getEmail() {
+        return email;
+    }
 }
 
 public class FormValidator {
@@ -68,7 +84,7 @@ public class FormValidator {
                     }
                 }
 
-            } catch (Exception e) {
+            } catch (IllegalAccessException | IllegalArgumentException e) {
                 errors.add("Error checking " + field.getName());
             }
         }
@@ -80,8 +96,8 @@ public class FormValidator {
 
         SignupForm form = new SignupForm(
                 "",
-                "thisisanextremelylongemailaddress@example.com",
-                "Anand"
+                "niyatiraiyani25aiml060@charusat.edu.in",
+                "Rajkot-Gondal"
         );
 
         List<String> errors = validate(form);
