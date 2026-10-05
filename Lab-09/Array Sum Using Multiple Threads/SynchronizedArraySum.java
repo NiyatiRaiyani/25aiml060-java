@@ -1,23 +1,27 @@
-class SafeSum {
+class SafeSum 
+{
     private int total = 0;
 
-    public synchronized void add(int value) {
+    public synchronized void add(int value) 
+    {
         total += value;
     }
 
-    public int getTotal() {
+    public int getTotal() 
+    {
         return total;
     }
 }
 
-class SafeSumThread extends Thread {
+class SafeSumThread extends Thread 
+{
     private int[] numbers;
     private int start;
     private int end;
     private SafeSum sum;
 
-    public SafeSumThread(int[] numbers, int start,
-                         int end, SafeSum sum) {
+    public SafeSumThread(int[] numbers, int start, int end, SafeSum sum) 
+    {
         this.numbers = numbers;
         this.start = start;
         this.end = end;
@@ -25,44 +29,54 @@ class SafeSumThread extends Thread {
     }
 
     @Override
-    public void run() {
-        for (int i = start; i < end; i++) {
+    public void run() 
+    {
+        for (int i = start; i < end; i++) 
+        {
             sum.add(numbers[i]);
         }
     }
 
-    public SafeSum getSum() {
+    public SafeSum getSum() 
+    {
         return sum;
     }
 
-    public void setStart(int start) {
+    public void setStart(int start) 
+    {
         this.start = start;
     }
 
-    public void setNumbers(int[] numbers) {
+    public void setNumbers(int[] numbers) 
+    {
         this.numbers = numbers;
     }
 
-    public void setSum(SafeSum sum) {
+    public void setSum(SafeSum sum) 
+    {
         this.sum = sum;
     }
 
-    public int getEnd() {
+    public int getEnd() 
+    {
         return end;
     }
 
-    public void setEnd(int end) {
+    public void setEnd(int end) 
+    {
         this.end = end;
     }
 }
 
-public class SynchronizedArraySum {
-    public static void main(String[] args)
-            throws InterruptedException {
+public class SynchronizedArraySum 
+{
+    public static void main(String[] args) throws InterruptedException 
+    {
 
         int[] numbers = new int[100000];
 
-        for (int i = 0; i < numbers.length; i++) {
+        for (int i = 0; i < numbers.length; i++) 
+        {
             numbers[i] = 1;
         }
 
@@ -78,25 +92,21 @@ public class SynchronizedArraySum {
         for (int i = 0; i < threadCount; i++) {
 
             int start = i * part;
-            int end = (i == threadCount - 1)
-                    ? numbers.length
-                    : start + part;
+            int end = (i == threadCount - 1) ? numbers.length : start + part;
 
-            threads[i] = new SafeSumThread(
-                numbers, start, end, sum
-            );
+            threads[i] = new SafeSumThread(numbers, start, end, sum);
 
             threads[i].start();
         }
 
-        for (Thread thread : threads) {
+        for (Thread thread : threads) 
+        {
             thread.join();
         }
 
         long endTime = System.nanoTime();
 
         System.out.println("Final Sum : " + sum.getTotal());
-        System.out.println("Execution Time : "
-                + (endTime - startTime) + " ns");
+        System.out.println("Execution Time : " + (endTime - startTime) + " ns");
     }
 }

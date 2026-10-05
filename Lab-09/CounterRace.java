@@ -2,36 +2,45 @@ class Counter {
     private int count = 0;
 
     // Synchronized method 
-    public synchronized void increment() {
+    public synchronized void increment() 
+    {
         count++;
     }
 
-    public int getCount() {
+    public int getCount() 
+    {
         return count;
     }
 }
 
-class CounterThread extends Thread {
+class CounterThread extends Thread 
+{
     private Counter counter;
 
-    public CounterThread(Counter counter) {
+    public CounterThread(Counter counter) 
+    {
         this.counter = counter;
     }
 
     @Override
-    public void run() {
-        for (int i = 1; i <= 10000; i++) {
+    public void run() 
+    {
+        for (int i = 1; i <= 10000; i++) 
+        {
             counter.increment();
         }
     }
 
-    public void setCounter(Counter counter) {
+    public void setCounter(Counter counter) 
+    {
         this.counter = counter;
     }
 }
 
-public class CounterRace {
-    public static void main(String[] args) throws InterruptedException {
+public class CounterRace 
+{
+    public static void main(String[] args) throws InterruptedException 
+    {
 
         Counter counter = new Counter();
 
