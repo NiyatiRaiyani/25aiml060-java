@@ -30,6 +30,30 @@ class SafeSumThread extends Thread {
             sum.add(numbers[i]);
         }
     }
+
+    public SafeSum getSum() {
+        return sum;
+    }
+
+    public void setStart(int start) {
+        this.start = start;
+    }
+
+    public void setNumbers(int[] numbers) {
+        this.numbers = numbers;
+    }
+
+    public void setSum(SafeSum sum) {
+        this.sum = sum;
+    }
+
+    public int getEnd() {
+        return end;
+    }
+
+    public void setEnd(int end) {
+        this.end = end;
+    }
 }
 
 public class SynchronizedArraySum {

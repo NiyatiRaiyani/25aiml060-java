@@ -1,7 +1,7 @@
 class Counter {
     private int count = 0;
 
-    // Synchronized method prevents race condition
+    // Synchronized method 
     public synchronized void increment() {
         count++;
     }
@@ -23,6 +23,10 @@ class CounterThread extends Thread {
         for (int i = 1; i <= 10000; i++) {
             counter.increment();
         }
+    }
+
+    public void setCounter(Counter counter) {
+        this.counter = counter;
     }
 }
 

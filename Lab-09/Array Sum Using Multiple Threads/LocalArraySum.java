@@ -20,6 +20,22 @@ class LocalSumThread extends Thread {
     public int getLocalSum() {
         return localSum;
     }
+
+    public int[] getNumbers() {
+        return numbers;
+    }
+
+    public void setEnd(int end) {
+        this.end = end;
+    }
+
+    public void setNumbers(int[] numbers) {
+        this.numbers = numbers;
+    }
+
+    public void setStart(int start) {
+        this.start = start;
+    }
 }
 
 public class LocalArraySum {
