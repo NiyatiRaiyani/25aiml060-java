@@ -7,21 +7,19 @@ public class ThreadPoolRunner {
 
         ExecutorService pool = Executors.newFixedThreadPool(3);
 
-        System.out.println("\nNotice: Demonstration of Thread Pool using 3 threads.\n");
-        
+        System.out.println("\nDemonstration of Thread Pool using 3 threads.\n");
+
         for (int i = 1; i <= 10; i++) {
             final int taskId = i;
 
-            pool.submit(() -> { String threadName = Thread.currentThread().getName();
+            pool.submit(() -> {
+                String threadName = Thread.currentThread().getName();
 
                 System.out.println("Task " + taskId + " is running on " + threadName);
 
-                try 
-                {
+                try {
                     Thread.sleep(500);
-                } 
-                catch (InterruptedException e) 
-                {
+                } catch (InterruptedException e) {
                     Thread.currentThread().interrupt();
                     return;
                 }
@@ -39,11 +37,11 @@ public class ThreadPoolRunner {
                 System.out.println("\nSome tasks are still running.");
                 pool.shutdownNow();
             }
-        } catch (InterruptedException e) 
-        {
+        } catch (InterruptedException e) {
             pool.shutdownNow();
             Thread.currentThread().interrupt();
         }
+
         System.out.println("\nNotice: A fixed thread pool of 3 threads executes 10 tasks, and threads are reused.\n");
     }
 }

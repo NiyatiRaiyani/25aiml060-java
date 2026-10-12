@@ -5,9 +5,10 @@ class SharedBuffer {
 
     private final Queue<Integer> buffer = new LinkedList<>();
     private final int capacity = 3;
+    private boolean productionFinished = false;
 
     public synchronized void produce(int item)
-        throws InterruptedException {
+            throws InterruptedException {
 
         while (buffer.size() == capacity) {
             wait();
@@ -16,21 +17,38 @@ class SharedBuffer {
         buffer.add(item);
         System.out.println("Produced item: " + item);
 
-        notify();
+        if (buffer.size() == capacity || item == 10) {
+            System.out.println("(" + buffer.size() + " items produced)\n");
+        }
+
+        notifyAll();
     }
 
-    public synchronized int consume()
+    public synchronized void consumeBatch()
             throws InterruptedException {
 
-        while (buffer.isEmpty()) {
+        while (buffer.size() < capacity && !productionFinished) {
             wait();
         }
 
-        int item = buffer.remove();
-        System.out.println("Consumed item: " + item);
+        if (buffer.isEmpty()) {
+            return;
+        }
 
-        notify();
-        return item;
+        int count = buffer.size();
+
+        for (int i = 0; i < count; i++) {
+            System.out.println("Consumed item: " + buffer.remove());
+        }
+
+        System.out.println("(" + count + " items consumed)\n");
+
+        notifyAll();
+    }
+
+    public synchronized void finishProduction() {
+        productionFinished = true;
+        notifyAll();
     }
 }
 
@@ -46,23 +64,23 @@ public class ProducerConsumer {
             try {
                 for (int i = 1; i <= 10; i++) {
                     buffer.produce(i);
-                    Thread.sleep(200);
                 }
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
+            } finally {
+                buffer.finishProduction();
             }
-        }, "Producer");
+        });
 
         Thread consumer = new Thread(() -> {
             try {
-                for (int i = 1; i <= 10; i++) {
-                    buffer.consume();
-                    Thread.sleep(300);
+                for (int i = 0; i < 4; i++) {
+                    buffer.consumeBatch();
                 }
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();
             }
-        }, "Consumer");
+        });
 
         producer.start();
         consumer.start();
@@ -74,6 +92,7 @@ public class ProducerConsumer {
             Thread.currentThread().interrupt();
         }
 
-        System.out.println("\nProducer-Consumer Problem Completed\n");
+        System.out.println("Producer-Consumer Problem Completed");
+        System.out.println("\nObservation: wait() and notifyAll() coordinate both threads.");
     }
 }
