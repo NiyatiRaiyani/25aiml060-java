@@ -20,10 +20,29 @@ class Student {
     @Column(name = "age")
     int age;
 
+    public Student() {
+        //TODO Auto-generated constructor stub
+    }
+
     public void display() {
         System.out.println("Name  : " + name);
         System.out.println("Email : " + email);
         System.out.println("Age   : " + age);
+    }
+
+    public Object getStudentCount() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getStudentCount'");
+    }
+
+    public Student[] getAllStudents() {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'getAllStudents'");
+    }
+
+    public void addStudent(Student student) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'addStudent'");
     }
 }
 
