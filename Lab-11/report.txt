@@ -1,11 +1,11 @@
 FOLDER TREE REPORT
 Name: .\FolderReport$1.class
 Size: 2181 bytes
-Modified: 2026-10-28T11:20:30.959509Z
+Modified: 2026-10-28T11:45:35.5958048Z
 ------------------
 Name: .\FolderReport.class
 Size: 2132 bytes
-Modified: 2026-10-28T11:20:30.9705056Z
+Modified: 2026-10-28T11:45:35.5988022Z
 ------------------
 Name: .\FolderReport.java
 Size: 1777 bytes
@@ -29,7 +29,7 @@ Modified: 2026-10-28T11:13:57.532275Z
 ------------------
 Name: .\report.txt
 Size: 0 bytes
-Modified: 2026-10-28T11:20:31.2007252Z
+Modified: 2026-10-28T11:45:43.3515862Z
 ------------------
 Name: .\SaveLoad.class
 Size: 2463 bytes
