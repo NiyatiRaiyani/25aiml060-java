@@ -1,0 +1,3 @@
+INFO: Application started
+ERROR: File not found
+INFO: Application completed

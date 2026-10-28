@@ -1,0 +1,49 @@
+FOLDER TREE REPORT
+Name: .\FolderReport$1.class
+Size: 2181 bytes
+Modified: 2026-10-28T11:20:30.959509Z
+------------------
+Name: .\FolderReport.class
+Size: 2132 bytes
+Modified: 2026-10-28T11:20:30.9705056Z
+------------------
+Name: .\FolderReport.java
+Size: 1777 bytes
+Modified: 2026-10-28T11:20:18.2808602Z
+------------------
+Name: .\LogAnalyzer.class
+Size: 3072 bytes
+Modified: 2026-10-28T11:13:50.3447025Z
+------------------
+Name: .\LogAnalyzer.java
+Size: 2036 bytes
+Modified: 2026-10-28T11:10:23.4081512Z
+------------------
+Name: .\logs\log1.txt
+Size: 79 bytes
+Modified: 2026-10-28T11:13:57.5292711Z
+------------------
+Name: .\logs\log2.txt
+Size: 52 bytes
+Modified: 2026-10-28T11:13:57.532275Z
+------------------
+Name: .\report.txt
+Size: 0 bytes
+Modified: 2026-10-28T11:20:31.2007252Z
+------------------
+Name: .\SaveLoad.class
+Size: 2463 bytes
+Modified: 2026-10-28T11:13:16.3720437Z
+------------------
+Name: .\SaveLoad.java
+Size: 1762 bytes
+Modified: 2026-10-28T11:13:12.364546Z
+------------------
+Name: .\Student.class
+Size: 457 bytes
+Modified: 2026-10-28T11:13:16.2885093Z
+------------------
+Name: .\students.dat
+Size: 123 bytes
+Modified: 2026-10-28T11:13:20.0572021Z
+------------------
